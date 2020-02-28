@@ -1,0 +1,10 @@
+--- 
+- name: Echo  
+  hosts: all
+  
+  
+  tasks: 
+     
+    - name : Echo
+      debug: 
+       msg: "Hello world!"
