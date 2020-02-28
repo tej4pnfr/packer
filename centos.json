@@ -6,9 +6,22 @@
         "ssh_username": "centos",
         "ami_name": "packer-centos{{timestamp}}"
     }],
-    "provisioners": [{
-        "type": "shell",
-        "inline": "echo 'Hello World'"
-    }]
-}
 
+"provisioners": [
+    {
+      "type": "file",
+      "source": "files/website",
+      "destination": "~/website"
+    },
+    {
+    "type": "shell",
+    "inline": [
+      "sudo yum -y update",
+      "sudo yum install -y httpd",
+      "sudo mv ~/website/* /var/www/html/",
+      "sudo restorecon -Rv /var/www/html/",
+      "sudo systemctl restart httpd",
+      "sudo systemctl enable httpd"
+    ]
+  }]
+}
