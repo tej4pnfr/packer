@@ -1,11 +1,7 @@
 {
-  "variables": {
-   "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
-   "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-  },
   "builders": [{
-     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
-    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+     "aws_access_key": "{{env `aws_access_key`}}",
+    "aws_secret_key": "{{env `aws_secret_key`}}",
     "type": "amazon-ebs",
     "region": "ap-southeast-2",
     "source_ami": "ami-01393ce9a3ca55d67",
